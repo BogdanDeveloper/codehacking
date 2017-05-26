@@ -22,11 +22,10 @@
 			    <td>{{$element -> id}}</td>
 			    <td>{{$element -> name}}</td>
 			    <td>{{$element -> email}}</td>
-			    <td>{{$element -> role['name']}}</td>
+			    <td>{{$element -> role -> name}}</td>
 			    <td>{{$element -> is_active == 1 ? 'Active' : 'Not active'}}</td>
 			    <td>{{$element -> created_at -> diffForHumans()}}</td>
 			    <td>{{$element -> updated_at -> diffForHumans()}}</td>
-			    
 			  </tr>
 	  	@endforeach
 	  @endif
