@@ -6,6 +6,7 @@ use App\User;
 use App\Role;
 use App\Photo;
 use App\Http\Requests\UsersCreateRequest;
+use App\Http\Requests\UsersEditRequest;
 
 use Illuminate\Http\Request;
 
@@ -69,6 +70,8 @@ class AdminUsersController extends Controller
         return redirect('admin/users');
     }
 
+    
+
     public function returned(){
 
     }
@@ -92,7 +95,11 @@ class AdminUsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        #$role = Role::lists('name', 'id') -> all();
+
+        return view('admin.users.edit', compact('user'));
     }
 
     /**
@@ -102,10 +109,33 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsersEditRequest $request, $id)
     {
-        //
+
+        $user = User::findOrFail($id);
+
+        $input = $request -> all();
+
+        if ($file = $request -> file('photo_id')) {
+            $name = time() . $file -> getClientOriginalName();
+
+            $file -> move('images', $name);
+
+            $photo = Photo::create(['file' => $name]);
+
+            $input['photo_id'] = $photo -> id;
+        }
+
+        if (!empty(trim($request -> password))) {
+            $input['password'] = bcrypt($request -> password)
+        }
+
+        $user -> update($input);
+
+        return redirect(route('all_users'));
+
     }
+
 
     /**
      * Remove the specified resource from storage.
