@@ -6,7 +6,10 @@
 
 	<div class="row">
 		{!! Form::open(['method' => 'POST', 'url' => 'admin/users/store', 'files' => true]) !!}
+
+			<input type="hidden" name="_method" value="POST">
 			{{ csrf_field()}}
+
 			<div class="row col-sm-4">
 				<div class="form-group">
 					{!! Form::label('name', 'name') !!}

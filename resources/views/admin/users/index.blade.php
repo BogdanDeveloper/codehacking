@@ -2,7 +2,17 @@
 
 @section('content')
 
+	@if (Session::has('deleted_user'))
+		<p class="alert alert-danger">{{session('deleted_user')}}</p>
+	@endif
+
+	@if (Session::has('updated_user'))
+		<p class="alert alert-success">{{session('updated_user')}}</p>
+	@endif
+
 	<h1>Users</h1>
+
+	{{public_path()}}
 
 	<table class="table">
 
@@ -21,7 +31,7 @@
 	  	@foreach ($users as $element)
 	  		 <tr>
 			    <td>{{$element -> id}}</td>
-			    <td><img src="{{$element -> photo ? $element -> photo -> file : "No photo"}}" width="50px" alt=""></td>
+			    <td><img src="../images/{{$element -> photo ? $element -> photo -> file : "No photo"}}" width="50px" alt=""></td>
 			    <td><a href="{{ route('edit_user', $element -> id) }}">{{$element -> name}}</a></td>
 			    <td>{{$element -> email}}</td>
 			    <td>{{$element -> role['name']}}</td>

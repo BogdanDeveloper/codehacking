@@ -38,7 +38,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">Home</a>
+            <a class="navbar-brand" href="{{ route('home') }}">Home</a>
+       
         </div>
         <!-- /.navbar-header -->
 
@@ -54,7 +55,7 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a href="{{ route('user_logout') }}"><i class="fa fa-sign-out fa-fw"></i> Logout aa</a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -99,10 +100,10 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="panels-wells.html">All Posts</a>
+                                <a href="{{ route('all_posts') }}">All Posts</a>
                             </li>
                             <li>
-                                <a href="buttons.html">Create Post</a>
+                                <a href="{{ route('create_post') }}">Create Post</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

@@ -10,8 +10,13 @@
                 <div class="panel-body">
                     You are logged in!
                 </div>
+
+                Go to <a href="{{ route('all_users') }}"> Dashboard</a>
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
 </div>
 @endsection
+
+

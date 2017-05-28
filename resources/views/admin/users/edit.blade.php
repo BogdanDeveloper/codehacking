@@ -53,6 +53,18 @@
 			</div>
 
 		{!! Form::close() !!}
+
+
+
+		{!! Form::open(['method' => 'DELETE', 'url' => ['admin/users/delete', $user -> id]]) !!}
+			{{ csrf_field() }}
+			<input type="hidden" name="_method" value="DELETE">
+			
+			{!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+
+			
+		{!! Form::close() !!}
+
 	</div>
 
 	@include('includes.form_error')
