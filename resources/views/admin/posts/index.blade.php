@@ -6,6 +6,7 @@
 
 	<table class="table">
 
+
 	  <tr>
 	    <th>Id</th>
 	    <th>Photo</th>
@@ -24,7 +25,7 @@
 			    <td><img src="../images/{{$element -> photo ? $element -> photo -> file : "No photo"}}" width="50px" alt=""></td>
 			    <td>{{$element -> title}}</td>
 			    <td>{{$element -> body}}</td>
-			    <td>{{$element -> category_id}}</td>
+			    <td>{{$element -> category_id ? $element -> category -> name : 'Uncategorized'}}</td>
 			    <td>{{$element -> user -> name}}</td>
 			    <td>{{$element -> created_at -> diffForHumans()}}</td>
 			    <td>{{$element -> updated_at -> diffForHumans()}}</td>

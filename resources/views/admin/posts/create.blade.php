@@ -4,6 +4,7 @@
 	
 	<h1>Create Post</h1>
 
+
 	<div class="row">
 		{!! Form::open(['method' => 'POST', 'url' => 'admin/posts/store', 'files' => true]) !!}
 
@@ -23,7 +24,7 @@
 
 				<div class="form-group">
 					{!! Form::label('category_id', 'category_id') !!}
-					{!! Form::select('category_id', ['' => 'options', '1' => 'PHP', '2' => 'JavaScript'], ['class' => 'form-control']) !!}
+					{!! Form::select('category_id', ['' => 'options'] + $categories, ['class' => 'form-control']) !!}
 				</div>
 
 				<div class="form-group">
